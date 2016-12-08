@@ -3,7 +3,7 @@ function [ white_noise_out ] = create_white_noise(  )
 %   Detailed explanation goes here
 
     % Create white noise
-    white_noise_out = 0.1 * randn(224,224,3, 'single');
+    white_noise_out =  ones(224,224,3, 'single');
     
     %white_noise_out = read_and_process('star.jpg');
     
