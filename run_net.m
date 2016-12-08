@@ -5,14 +5,14 @@ function res = run_net( input , gradient )
   % load in values from input network
   
   % conv1
-  w1 = in_net.layers{1,1}.weights{1,1};      % conv1_1
+  w1 = in_net.layers{1,1}.weights{1,1};
   b1 = in_net.layers{1,1}.weights{1,2};
   p1 = in_net.layers{1,1}.pad;
   s1 = in_net.layers{1,1}.stride;
   d1 = in_net.layers{1,1}.dilate;
 
   %conv3
-  w3 = in_net.layers{1,3}.weights{1,1};       % conv1_2
+  w3 = in_net.layers{1,3}.weights{1,1};
   b3 = in_net.layers{1,3}.weights{1,2};
   p3 = in_net.layers{1,3}.pad;
   s3 = in_net.layers{1,3}.stride;

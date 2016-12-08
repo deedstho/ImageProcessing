@@ -161,7 +161,7 @@ function res = run_net( input, in_net, for_res , gradient )
     
   else % backward pass
       
-    %res.dzdx5 = gradient;
+    res.dzdx5 = gradient;
     res.dzdx4 = vl_nnpool(for_res.x4, pool5, res.dzdx5, 'stride', stride5, 'pad', pad5);
     res.dzdx3 = vl_nnrelu(for_res.x3, res.dzdx4);
     [res.dzdx2, res.dzdw3, res.dzdb3] = ...
