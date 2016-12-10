@@ -1,4 +1,4 @@
-run matconvnet-1.0-beta23/matlab/vl_setupnn;
+run ~/Documents/MATLAB/EECS351/matconvnet-master/matlab/vl_setupnn;
 
 in_net = load('imagenet-vgg-verydeep-19.mat');
 
@@ -6,7 +6,7 @@ w = in_net.layers{1,1}.weights{1,1};      % conv1_1
 b = in_net.layers{1,1}.weights{1,2};
 p = in_net.layers{1,1}.pad;
 s = in_net.layers{1,1}.stride;
-d = in_net.layers{1,1}.dilate;
+%d = in_net.layers{1,1}.dilate;
 
 input = read_and_process('fox.jpg');
 
@@ -16,10 +16,10 @@ title('original image')
 
 white_noise = create_white_noise();
 
-desired_result = big_net(input, w, b, p, s, d);
+desired_result = big_net(input, w, b, p, s);
 
 % Parameters for training
-num_iterations = 100;
+num_iterations = 1;
 rate = single(.01);
 loss_graph = [];
 test_values = [];
@@ -35,7 +35,7 @@ image(white_noise);
 title('original white noise image');
 
 for i = 1:num_iterations
-    actual_result = big_net(white_noise, w, b, p, s, d);
+    actual_result = big_net(white_noise, w, b, p, s);
 
      % Calculate loss and partial derivative
     content_loss = loss(desired_result.x2, actual_result.x2);
@@ -45,7 +45,7 @@ for i = 1:num_iterations
     loss_graph = vertcat(loss_graph, content_loss);
 
     % Run backwards through the network
-    back_result = big_net(white_noise, w, b, p, s, d, gradient);
+    back_result = big_net(actual_result, white_noise, w, b, p, s, gradient);
     
     %w_momentum = momentum * w_momentum + rate * (back_result.dzdw + shrinkRate * w) ;
     %b_momentum = momentum * b_momentum + rate * 0.1 * back_result.dzdb ;
