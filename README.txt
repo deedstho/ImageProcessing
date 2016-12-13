@@ -1,17 +1,15 @@
 README.txt
 
-This document describes how to run our program. This requires downloading, 
-compiling, and seting up the MatConvNet Library. MatConvNet can optionally
-be compiled with GPU support, but this is requires an NVIDIA GPU and we 
-recommend only doing this locally using CAEN Linux. Knowledge of MATLAB is
-highly recommended before attempting this process.
+This document describes how to run our content reconstruction. This is the 
+simplest possible way to see what our project does, but it does require some
+steps. Please don't hesitate to contact us if MatConvnet gives you trouble; 
+we are happy to help.
 
 1. Downloading MatConvNet
 
 Download or clone MatConvNet from https://github.com/vlfeat/matconvnet.git
 
-
-2A. Compiling MatConvNet w/o GPU
+2. Compiling MatConvNet
 
 Run the following commands from the MATLAB command window:
 
@@ -19,22 +17,12 @@ Run the following commands from the MATLAB command window:
 	>> addpath matlab
 	>> vl_compilenn
 
-
---- OR ---
-
-
-2B. Compiling MatConvNet w/ GPU
-
-	>> cd <MatConvNet Path>
-	>> addpath matlab
-	>> vl_compilenn('enableGpu', true, ...
-			'cudaRoot', '/usr/um/CUDA-7.5', ...
-			'cudaMethod', 'nvcc')
-
 3. Setting up MatConvNet
 
 Run the following command in matlab BEFORE EACH USE
 
 	>> run <MatConvNet Path>/matlab/vl_setupnn
 
-4. Running FUNCTION_NAME
+4. Running content_reconstruction.m
+
+	>> content_reconstruction('fox.jpg', 0.01, 40)
