@@ -10,7 +10,7 @@ SOURCES:
 fox.jpg: http://shushi168.com/picture.html
 
 vgg19_one_layer.mat: http://www.vlfeat.org/matconvnet/pretrained/\
-(contains weights from "imagenet-vgg-verydeep-19.mat")
+(derived from imagenet-vgg-verydeep-19)
 
 1. Downloading MatConvNet
 
