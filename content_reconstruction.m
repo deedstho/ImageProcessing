@@ -1,12 +1,12 @@
 function out = content_reconstruction( content_image_name, rate, num_iterations )
 
-in_net = load('imagenet-vgg-verydeep-19.mat');
+in_net = load('vgg19_one_layer.mat');
 
-w = in_net.layers{1,1}.weights{1,1};      % conv1_1
-b = in_net.layers{1,1}.weights{1,2};
-p = in_net.layers{1,1}.pad;
-s = in_net.layers{1,1}.stride;
-d = in_net.layers{1,1}.dilate;
+w = in_net.first_layer.weights{1,1};      % conv1_1
+b = in_net.first_layer.weights{1,2};
+p = in_net.first_layer.pad;
+s = in_net.first_layer.stride;
+d = in_net.first_layer.dilate;
 
 content_image = read_and_process(content_image_name);
 
