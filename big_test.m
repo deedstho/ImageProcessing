@@ -1,5 +1,3 @@
-run matconvnet-1.0-beta23/matlab/vl_setupnn;
-
 in_net = load('imagenet-vgg-verydeep-19.mat');
 
 w = in_net.layers{1,1}.weights{1,1};      % conv1_1
