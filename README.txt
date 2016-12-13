@@ -5,6 +5,13 @@ simplest possible way to see what our project does, but it does require some
 steps. Please don't hesitate to contact us if MatConvnet gives you trouble; 
 we are happy to help.
 
+SOURCES:
+
+fox.jpg: http://shushi168.com/picture.html
+
+vgg19_one_layer.mat: http://www.vlfeat.org/matconvnet/pretrained/\
+(contains weights from "imagenet-vgg-verydeep-19.mat")
+
 1. Downloading MatConvNet
 
 Download or clone MatConvNet from https://github.com/vlfeat/matconvnet.git
